@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2 class="show">Show Student data</h2>
+  <p class="result"></p>
+  <script>
+    let show = document.querySelector(".show");
+    let result = document.querySelector(".result");
+    let arr = [{ name: "arvaj", marks: 80, Grade: "A" },
+    { name: "Shahil", marks: 45, Grade: "F" },
+    { name: "Aamir", marks: 90, Grade: "A+" },
+    { name: "arvaj", marks: 80, Grade: "A" }
+    ]
+    show.innerHTML = arr.map(student => `${student.name} - ${student.marks} = ${student.Grade}`).join("<br>");
+    result.innerHTML = arr.filter(item => item.marks > 50).map(student => `${student.name} - ${student.marks} ${student.Grade}`).join("<br>")
+  </script>
+</body>
+
+</html>
