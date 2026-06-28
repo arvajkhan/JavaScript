@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="fetch"></p>
+    <h2 id="result"></h2>
+    <script>
+      // let complete = true;
+      // let prom = new Promise(function(resolve,reject){
+      //   if(complete){
+      //     resolve("I am SuccessFull.")
+      //   }else{
+      //     reject("I am Failed")
+      //   }
+      // });
+      // console.write(prom);
+
+      // function prom(complete) {
+      //   return prom = new Promise(function (resolve, reject) {
+      //     if (complete) {
+      //       resolve("I am SuccessFull.");
+      //     } else {
+      //       reject("I am Failed");
+      //     }
+      //   });
+      // }
+
+      // console.log(prom(true))
+      // prom.then(function(result){
+      //   document.querySelector("#result").innerHTML = result;
+      // })
+      // .catch(function(error){
+      //   document.querySelector("#result").innerHTML =  error;
+      // })
+
+      // function prom(complete) {
+      //   return (prom = new Promise(function (resolve, reject) {
+      //     if (complete) {
+      //       resolve("I am SuccessFull.");
+      //     } else {
+      //       reject("I am Failed");
+      //     }
+      //   }));
+      // }
+
+      // let onfulFilment = (result) => {
+      //   document.querySelector("#result").innerHTML = result;
+      // };
+      // let onRejection = (error) => {
+      //   document.querySelector("#result").innerHTML = error;
+      // };
+
+      // prom(true)
+      // .then(onfulFilment)
+      // .catch(onRejection)
+
+      function prom(complete) {
+        return (prom = new Promise(function (resolve, reject) {
+          document.querySelector("#fetch").innerHTML = complete
+          if (complete) {
+            resolve("I am SuccessFull.");
+          } else {
+            reject("I am Failed");
+          }
+        }));
+      }
+
+    </script>
+  </body>
+</html>

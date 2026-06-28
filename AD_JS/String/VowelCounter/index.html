@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        align-items: center;
+      }
+      .from {
+        width: 300px;
+        height: 350px;
+        border: 2px solid black;
+        border-radius: 10px;
+        box-shadow: 0.5px 0.5px 5px 0.5px;
+        text-align: center;
+        display: grid;
+        gap: 20px;
+      }
+      label {
+        font-size: 30px;
+      }
+      button {
+        background-color: skyblue;
+      }
+      button,
+      input {
+        border-radius: 10px;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="from">
+      <h1>Vowel Counter</h1>
+      <label for="">Enter the Name</label>
+      <input type="text" class="EnterTheName" />
+      <button onclick="btn()">Calculate</button>
+      <p class="result"></p>
+    </div>
+    <script>
+      function btn() {
+        let str = document.querySelector(".EnterTheName").value;
+        let result = document.querySelector(".result");
+
+        let count = 0;
+        for (let ch of str.toLowerCase()) {
+          if (
+            ch === "a" ||
+            ch === "e" ||
+            ch === "i" ||
+            ch === "o" ||
+            ch === "u"
+          ) {
+            count++;
+          }
+        }
+        result.innerHTML = count
+      }
+    </script>
+  </body>
+</html>

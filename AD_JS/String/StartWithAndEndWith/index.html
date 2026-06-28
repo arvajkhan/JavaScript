@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>String  : startWith and endWith Method</h1>
+  <h2 class="show"></h2>
+  <p class="result"></p>
+  <h2 class="show1"></h2>
+  <p class="result1"></p>
+  <script>
+    let show = document.querySelector(".show")
+    let result = document.querySelector(".result")
+    let show1 = document.querySelector(".show1")
+    let result1 = document.querySelector(".result1")
+
+    let str = "Arvaj Khan"
+
+    // for startWith
+
+    show.innerHTML = str
+    result.innerHTML = str.startsWith("Arvaj")
+    
+    // for endWith
+
+    result1.innerHTML=  str.toLowerCase().endsWith("khan")
+
+
+  </script>
+</body>
+</html>

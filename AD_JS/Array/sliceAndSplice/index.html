@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: grid;
+      place-items: center;
+      align-items: center; 
+    }
+    .from{
+      width: 400px;
+      height: 600px;
+      border: 2px solid black;
+      border-radius: 10px;
+      display: grid;
+      align-items: center;
+      place-items: center;
+    }
+    input{
+      width: 380px;
+      height: 30px;
+      border-radius: 10px;
+    }
+    button{
+      width: 388px;
+      height: 30px;
+      border-radius: 10px;
+      background-color: skyblue;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="from">
+    <h1 >Array : Slice</h1>
+    <h2 class="show"></h2>
+    <input type="text" id="name">
+    <input type="text" id="name1">
+    <button onclick="btn()">Search</button>
+    <div class="result"></div>
+  </div>
+  <script>
+    let show = document.querySelector(".show");
+    let arr = ["Arvaj","Shahil","Rohit","Mohit"]
+    show.innerHTML = arr.join(" ")
+    function btn(){
+      let in1 = document.querySelector("#name").value;
+      let in2 = document.querySelector("#name1").value;
+      let result = document.querySelector(".result");
+      let ss = arr.slice(in1,in2)
+      result.innerHTML = ss
+    }
+  </script>
+</body>
+</html>

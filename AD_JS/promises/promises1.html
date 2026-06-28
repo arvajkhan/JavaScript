@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 id="fetch"></h3>
+    <h1 id="result"></h1>
+    <script>
+      // function prom(complete) {
+      //   return (prom = new Promise(function (resolve, reject) {
+      //     // document.querySelector("#fetch").innerHTML = complete;
+      //     if (complete) {
+      //       resolve("I am  SuccessFull.");
+      //     } else {
+      //       reject("i am reject");
+      //     }
+      //   }));
+      // }
+
+      // prom(true).then(function (result) {
+      //     document.querySelector("#result").innerHTML = result;
+      //   })
+      //   .catch(function (error) {
+      //     document.querySelector("#result").innerHTML = error;
+      //   });
+
+        function prom(complete) {
+          return prom = new Promise(function (resolve, reject) {
+            let aa = "Fetching data, Please Wait."
+            document.querySelector("#fetch").innerHTML = aa;
+            setTimeout(() => {
+              if (complete) {
+                resolve("I am  SuccessFull.");
+              } else {
+                reject("i am reject");
+              }
+            },1000);
+          });
+        }
+
+        prom(true)
+          .then(function (result) {
+            document.querySelector("#result").innerHTML = result;
+          })
+          .catch(function (error) {
+            document.querySelector("#result").innerHTML = error;
+        });
+    </script>
+  </body>
+</html>

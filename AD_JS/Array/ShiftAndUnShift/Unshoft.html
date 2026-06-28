@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: grid;
+      align-items: center;
+      place-items: center;
+    }
+
+    .form {
+      width: 400px;
+      height: 450px;
+      border: 2px solid black;
+      border-radius: 10px;
+      display: grid;
+      align-items: center;
+      place-items: center;
+    }
+
+    input,
+    button {
+      height: 30px;
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      margin-bottom: px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form">
+    <h1>Shift In Array</h1>
+    <h2 class="show"></h2>
+    <input type="number" name="" id="value">
+    <button onclick="btn()">Add</button>
+    <p class="result"></p>
+    <script>
+      let show = document.querySelector(".show")
+      let arr = [2, 3, 45, 6, 7, 8]
+      show.innerHTML = "Array : " + arr.join(" ")
+      function btn() {
+        let addNewValue = document.querySelector("#value").value;
+        let result = document.querySelector(".result")
+
+        arr.unshift(addNewValue)
+        result.innerHTML = "Final Array : " + arr.join(" ")
+      }
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 class="ShowTheItem"></h2>
+    <input type="text" placeholder="Enter the value" id="search" />
+    <button onclick="btn()">Search</button>
+    <p class="result"></p>
+    <script>
+      let arr = [
+        "Arvaj",
+        "Shahil",
+        "Amit",
+        "Harsh",
+        "Amol",
+        "Arthik",
+        "Rihan",
+        "Faizan",
+      ];
+      let show = document.querySelector(".ShowTheItem");
+      arr.forEach((element) => {
+        show.innerHTML += `<p>${element}</p>`;
+      });
+
+      function btn() {
+        let search = document
+          .querySelector("#search")
+          .value
+          .trim();
+        let result = document.querySelector(".result");
+
+        if (search === "") {
+          result.innerHTML = "Please ENter The Name";
+          result.style.color = "orange";
+          return;
+        }
+        if (arr.includes(search)) {
+          result.innerHTML = `${search}`;
+          result.style.color = "green";
+        } else {
+          result.innerHTML = "Result is not found";
+          result.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+ 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <h1>String  : indexOF and lastIndexOf</h1>
+  <h2 class="show"></h2>
+  <p class="result"></p>
+  <h2 class="show1"></h2>
+  <p class="result1"></p>
+  <script>
+    let show = document.querySelector(".show")
+    let result = document.querySelector(".result")
+    let show1 = document.querySelector(".show1")
+    let result1 = document.querySelector(".result1")
+
+    let str = "This is Good for You"
+
+    // for indexOf
+
+    show.innerHTML = str
+    result.innerHTML = str.indexOf("s");
+
+
+    // for lastIndexOf
+
+    result1.innerHTML = str.lastIndexOf("You")
+    </script>
+</body>
+</html>

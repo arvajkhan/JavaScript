@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>String : Replace And ReplaceAll </h1>
+  <h2 class="show"></h2>
+  <p class="result"></p>
+  <h2 class="show1"></h2>
+  <p class="result1"></p>
+  <script>
+    let show = document.querySelector(".show")
+    let result = document.querySelector(".result")
+    let show1 = document.querySelector(".show1")
+    let result1 = document.querySelector(".result1")
+    let str = "This is Good for You and This is most beautiful place ever seen in my life"
+
+    // replace("old","new")
+    show.innerHTML = str
+    result.innerHTML = str.replace("This","That")
+
+
+    //replaceAll("old","new")
+    show1.innerHTML = str
+    result1.innerHTML = str.replaceAll("This","That")
+  </script>
+</body>
+</html>

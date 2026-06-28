@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: grid;
+      align-items: center;
+      place-items: center;
+    }
+    
+    .form{
+      width: 400px;
+      height: 400px;
+      border: 2px solid black;
+      border-radius: 10px;
+      display: grid;
+      align-items: center;
+      place-items: center;
+    }
+    input{
+      border-radius: 10px;
+      height: 30px;
+      width: 340px;
+    }
+    h2{
+      margin-top: -40px;
+    }
+    button{
+
+      border-radius: 10px;
+      height: 30px;
+      width: 340px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+
+  <div  class="form">  
+    <h1>This Push of Array</h1>
+    <h2 class="show"></h2>
+    <input type="text" name="" id="Value">
+    <button onclick="btn()">Merge</button>
+    <p class="result"></p>
+    <script>
+      let show = document.querySelector(".show")
+      let arr = [2,3,4,5,6,7]
+      show.innerHTML = "Array Value : " + arr.join(" ")
+
+
+      function btn(){
+        let addArr = document.querySelector("#Value").value
+        let result = document.querySelector(".result")
+        arr.push(addArr) 
+        result.innerHTML = arr.join(" ")
+      }
+    </script>
+  </div>
+</body>
+</html>

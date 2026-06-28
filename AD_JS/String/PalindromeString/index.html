@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: grid;
+      place-items: center;
+      align-items: center;
+    }
+    .from{
+      width: 330px;
+      height: 250px;
+      border: 2px solid black;
+      border-radius: 10px;
+      display: grid;
+      gap: 20px;
+      text-align: center;
+      box-shadow: 0.5px 0.5px 6px 0.5px;
+    }
+    .from label{
+      font-size: 25px;
+    }
+    button,input{
+      height: 30px;
+      border-radius: 10px;
+    }
+    button{
+      background-color: skyblue;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="from">
+    <label for="">Enter the Palindrome Number</label>
+    <input type="text" class="EnterThePalindromeNumber">
+    <button onclick="btn()">Calculate</button>
+    <p class="result"></p>
+  </div>
+  <script>
+    function btn(){
+      let str = document.querySelector(".EnterThePalindromeNumber").value
+      let result = document.querySelector(".result")
+      let reverseStr = str.split("").reverse().join("");
+      if(str == reverseStr ){
+        result.innerHTML = `This Is a Palindrome Value : ${str}`
+      }else{
+        result.innerHTML = "This is not Palindrome String"
+      }
+    }
+  </script>
+</body>
+</html>

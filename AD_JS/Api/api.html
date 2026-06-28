@@ -1,0 +1,364 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        margin-top: 50px;
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-success" id="getPost">GET</button>
+          <button class="btn btn-primary" id="createPost">Create</button>
+          <button class="btn btn-info" id="updatePost">Put</button>
+          <button class="btn btn-warning" id="patchPost">Patch</button>
+          <button class="btn btn-danger" id="deletePost">Delete</button>
+          <div id="table"></div>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const apiEndPoint = "https://jsonplaceholder.typicode.com/posts";
+
+      const getButton = document.querySelector("#getPost");
+      const createButton = document.querySelector("#createPost");
+      const updateButton = document.querySelector("#updatePost");
+      const patchButton = document.querySelector("#patchPost");
+      const deleteButton = document.querySelector("#deletePost");
+
+      const getPost = async() => {
+        const response = await fetch(apiEndPoint);
+        const posts = await response.json();
+        return posts;
+      }
+
+      getButton.addEventListener("click", async() => {
+        const posts = await getPost();
+        getPost();
+  
+        const table = `<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">title</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      ${posts.map(post => `<tr>
+        <th scope="row">${post.id}</th>
+        <td>${post.title}</td>
+      </tr>`
+      ).join("\n")}
+    </tbody>
+
+</table>`;
+
+document.querySelector("#table").innerHTML = table;
+      });
+
+
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+
+ -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CRUD API Project</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+  </style>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col">
+
+        <button class="btn btn-success" id="getPost">
+          GET
+        </button>
+
+        <button class="btn btn-primary" id="createPost">
+          Create
+        </button>
+
+        <button class="btn btn-info" id="updatePost">
+          Put
+        </button>
+
+        <button class="btn btn-warning" id="patchPost">
+          Patch
+        </button>
+
+        <button class="btn btn-danger" id="deletePost">
+          Delete
+        </button>
+
+        <div id="table" class="mt-4"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <script>
+
+    const apiEndPoint =
+      "https://jsonplaceholder.typicode.com/posts";
+
+
+
+    // BUTTONS
+    const getButton =
+      document.querySelector("#getPost");
+
+    const createButton =
+      document.querySelector("#createPost");
+
+    const updateButton =
+      document.querySelector("#updatePost");
+
+    const patchButton =
+      document.querySelector("#patchPost");
+
+    const deleteButton =
+      document.querySelector("#deletePost");
+
+
+
+    // ================= GET API =================
+
+    const getPost = async () => {
+
+      const response =
+        await fetch(apiEndPoint);
+
+      const posts =
+        await response.json();
+
+      return posts;
+    };
+
+
+
+    // ================= GET BUTTON =================
+
+    getButton.addEventListener("click", async () => {
+
+      const posts = await getPost();
+
+      const table = `
+
+        <table class="table table-bordered table-striped">
+
+          <thead class="table-dark">
+
+            <tr>
+              <th>ID</th>
+              <th>User ID</th>
+              <th>Title</th>
+              <th>Body</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            ${posts.map(post => `
+
+              <tr>
+                <td>${post.id}</td>
+                <td>${post.userId}</td>
+                <td>${post.title}</td>
+                <td>${post.body}</td>
+              </tr>
+
+            `).join("")}
+
+          </tbody>
+
+        </table>
+
+      `;
+
+      document.querySelector("#table").innerHTML = table;
+
+    });
+
+
+
+    // ================= CREATE API =================
+
+    createButton.addEventListener("click", async () => {
+
+      const response = await fetch(apiEndPoint, {
+
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+          userId: 1,
+          title: "New Post",
+          body: "This data is created"
+
+        })
+
+      });
+
+      const data = await response.json();
+
+      console.log("POST :", data);
+
+      alert("POST API CALLED");
+
+    });
+
+
+
+    // ================= PUT API =================
+
+    updateButton.addEventListener("click", async () => {
+
+      const response = await fetch(`${apiEndPoint}/1`, {
+
+        method: "PUT",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+          id: 1,
+          userId: 1,
+          title: "Updated Title",
+          body: "Updated Body"
+
+        })
+
+      });
+
+      const data = await response.json();
+
+      console.log("PUT :", data);
+
+      alert("PUT API CALLED");
+
+    });
+
+
+
+    // ================= PATCH API =================
+
+    patchButton.addEventListener("click", async () => {
+
+      const response = await fetch(`${apiEndPoint}/1`, {
+
+        method: "PATCH",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+          title: "Patched Title"
+
+        })
+
+      });
+
+      const data = await response.json();
+
+      console.log("PATCH :", data);
+
+      alert("PATCH API CALLED");
+
+    });
+
+
+
+    // ================= DELETE API =================
+
+    deleteButton.addEventListener("click", async () => {
+
+      const response = await fetch(`${apiEndPoint}/1`, {
+
+        method: "DELETE"
+
+      });
+
+      console.log("DELETE :", response);
+
+      alert("DELETE API CALLED");
+
+    });
+
+  </script>
+
+
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+</body>
+
+</html>

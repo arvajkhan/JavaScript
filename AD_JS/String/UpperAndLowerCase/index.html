@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>String : UpperCase And LowerCase Method</h1>
+    <h2 class="show"></h2>
+    <p class="result"></p>
+    <h3 class="show1"></h3>
+    <p class="result1"></p>
+
+    <script>
+      let show = document.querySelector(".show");
+      let show1 = document.querySelector(".show1");
+      let result = document.querySelector(".result");
+      let result1 = document.querySelector(".result1");
+      let str = "this is good";
+      let str1 = "THis is GOOD";
+
+      // For UpperCase
+      show.innerHTML = str1;
+      result.innerHTML = str1.toUpperCase();
+
+      //For LowerCase
+
+      show1.innerHTML = str;
+      result1.innerHTML = str1.toLowerCase()
+    </script>
+  </body>
+</html>

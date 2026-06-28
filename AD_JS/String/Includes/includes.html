@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="Para"></div>
+    <h1>SearchBar</h1>
+    <input type="text" placeholder="Enter the word" id="search" />
+    <button onclick="btn()">Search</button>
+    <p class="result"></p>
+    <script>
+       let str = "My Name is Arvaj khan";
+       let para = document.querySelector(".Para")
+       para.innerHTML = str
+      function btn() {
+        let search = document.querySelector("#search").value
+        let result = document.querySelector(".result");
+        result.innerHTML = str.includes(search)
+      }
+    </script>
+  </body>
+</html>

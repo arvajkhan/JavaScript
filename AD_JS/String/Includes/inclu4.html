@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .resu {
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+        color: black;
+        text-align: center;
+        display: grid;
+        align-items: center;
+        place-content: center;
+        border-radius: 10px;
+        box-shadow: 0.5px 0.5px 10px 2px red;
+      }
+      .data {
+        display: flex;
+        gap: 25px;
+        text-align: center;
+      }
+      .names {
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+        border-radius: 10px;
+        box-shadow: 0.5px 0.5px 10px 2px red;
+        text-align: center;
+        display: grid;
+        align-items: center;
+        place-content: center;
+      }
+      #search {
+        width: 200px;
+        height: 25px;
+        border-radius: 10px;
+        box-shadow: 0.5px 0.5px 10px 2px black;
+      }
+      button{
+        width: 80px;
+        height: 30px;
+        border-radius: 10px;
+        background-color: red;
+         box-shadow: 0.5px 0.5px 10px 2px black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="data">Show The Names</div>
+    </div>
+    <input type="text" name="" id="search" placeholder="Enter the value" />
+    <button onclick="btn()">Search</button>
+    <h3 class="result"></h3>
+    <script>
+      let arr = ["Arvaj", "Shahil", "Rohit", "Mohit", "Rihan"];
+      let data = document.querySelector(".data");
+
+      arr.forEach((element) => {
+        data.innerHTML += `<p class="names">  ${element} </p>`;
+      });
+
+      function btn() {
+        let search = document.querySelector("#search").value.trim();
+        let result = document.querySelector(".result");
+        if (arr === "") {
+          result.innerHTML = "Please Fill The Blanks";
+          result.style.color = "Green";
+        } else if (arr.includes(search)) {
+          result.innerHTML = `<div class="resu"> ${search} <div>`;
+        } else {
+          result.innerHTML = "result is not found";
+          result.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

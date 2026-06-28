@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: grid;
+      align-items: center;
+      place-items: center;
+    }
+    .from{
+      width: 300px;
+      height: 200px;
+      border: 2px solid black;
+      border-radius: 10px;
+      box-shadow: 0.5px 0.5px 6px 0.5px;
+      display: grid;
+      padding: 20px;
+       text-align: center;
+    }
+    .from label{
+      font-size: 25px;
+    }
+    input{
+   
+      height: 30px;
+      border-radius: 10px;
+    }
+    button{
+      height: 30px;
+      border-radius: 10px;
+      background-color: skyblue;
+     
+    }
+  </style>
+</head>
+<body>
+  <div class="from">
+    <label>Enter The Text</label>
+    <input type="text" id="inputUserString">
+    <br>
+    <button onclick="btn()">Length Calculate</button>
+    <p class="result"></p>
+  </div>
+
+  <script>
+
+    function btn(){
+      let str = document.querySelector("#inputUserString").value
+      let result = document.querySelector(".result")
+      result.innerHTML = str.length
+    }
+  </script>
+</body>
+</html>

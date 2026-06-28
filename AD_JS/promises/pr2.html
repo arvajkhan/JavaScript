@@ -1,0 +1,77 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <h1 id="data"></h1>
+    <p id="result"></p>
+    <script>
+      function prom() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(()=>{
+            $.get("https://jsonplaceholder.typicode.com/comments",function(data){
+              document.querySelector("#data").innerHTML = data;
+            }).fail(err =>{
+              reject("fail to load json")
+            })
+          },2000)
+        });
+      }
+
+      prom().then((result)=>{
+        document.querySelector("#result").innerHTML = result;
+      }).catch((error) =>{
+        document.querySelector("#result").innerHTML = error;
+      })
+    </script>
+  </body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise API</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <h1 id="data"></h1>
+    <p id="result"></p>
+
+    <script>
+      function prom() {
+        return new Promise(function (resolve, reject) {
+          setTimeout(() => {
+            $.get(
+              "https://jsonplaceholder.typicode.com/comments",
+              function (data) {
+                document.querySelector("#data").innerHTML = JSON.stringify(
+                  data[0],
+                );
+                resolve("Data Loaded Successfully");
+              },
+            ).fail(function () {
+              reject("Fail to load JSON");
+            });
+          }, 1000);
+        });
+      }
+
+      prom()
+        .then((result) => {
+          document.querySelector("#result").innerHTML = result;
+        })
+
+        .catch((error) => {
+          document.querySelector("#result").innerHTML = error;
+        });
+    </script>
+  </body>
+</html>

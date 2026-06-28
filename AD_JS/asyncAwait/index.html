@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function dataFetch(){
+
+ return new Promise((resolve)=>{
+     setTimeout(()=>{
+        resolve("Data aa gaya");
+     },3000)
+ })
+
+}
+
+async function show(){
+
+   console.log("Start");
+
+   let result = await dataFetch();
+
+   console.log(result);
+
+   console.log("End");
+
+}
+
+show();
+  </script>
+</body>
+</html>
