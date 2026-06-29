@@ -81,8 +81,8 @@ button:hover{
 }
 
 .form{
-    min-height: 100vh;
-    margin-top: 20%;
+    /* min-height: 100vh; */
+    margin-top: 10%;
 }
   </style>
 </head>
@@ -96,14 +96,14 @@ button:hover{
   <br>
   <br>
   <div class="container hero">
-    <div class="row form g-5 "></div>
+    <div class="row from1 g-5 "></div>
   </div>
   <div class="container">
     <div class="row form g-5"></div>
   </div>
   <script>
     let student = document.querySelector(".form");
-    let val = document.querySelector("#val").value;
+    
     let arr = [
   { roll: "1", name: "Shahil", course: "B.Tech", address: "Delhi", photo: "logo.jpg" },
   { roll: "2", name: "Rahul", course: "B.Tech", address: "Noida", photo: "logo.jpg" },
@@ -139,8 +139,36 @@ arr.forEach(element => {
 
 student.innerHTML = show;
 
-function search(){
-  arr.filter(item => item === roll)
+// function search(){
+//   let result = document.querySelector(".from1").value;
+
+//   let val = document.querySelector("#val").value;
+//   arr.filter(item => item === roll)
+  
+// }
+function search() {
+
+    let val = document.querySelector("#val").value;
+
+    let result = arr.filter(item => item.roll === val);
+
+    let show = "";
+
+    result.forEach(element => {
+        show += `
+        <div class="col-lg-3">
+            <div class="card " style="height: 300px">
+                <img src="${element.photo}">
+                <p>Roll: ${element.roll}</p>
+                <p>Name: ${element.name}</p>
+                <p>Course: ${element.course}</p>
+                <p>Address: ${element.address}</p>
+            </div>
+        </div>
+        `;
+    });
+
+    student.innerHTML = show;
 }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
