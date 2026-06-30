@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <style>
- 
     /* .card{
       display: grid;
       align-items: center;
@@ -22,70 +23,71 @@
     .hero{
       height: 400px;
     } */
-     body{
-    background:#f5f5f5;
-    font-family:Arial, Helvetica, sans-serif;
-}
+    body {
+      background: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-h1{
-    text-align:center;
-    margin:25px 0;
-}
+    h1 {
+      text-align: center;
+      margin: 25px 0;
+    }
 
-#val{
-    width:300px;
-    padding:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
+    #val {
+      width: 300px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
 
-button{
-    padding:10px 20px;
-    border:none;
-    border-radius:8px;
-    background:#0d6efd;
-    color:white;
-    cursor:pointer;
-}
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #0d6efd;
+      color: white;
+      cursor: pointer;
+    }
 
-button:hover{
-    background:#0b5ed7;
-}
+    button:hover {
+      background: #0b5ed7;
+    }
 
-.card{
-    text-align:center;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-    transition:.3s;
-    height:100%;
-    margin: 20px;
-}
+    .card {
+      text-align: center;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+      transition: .3s;
+      height: 100%;
+      margin: 20px;
+    }
 
 
-.card:hover{
-    transform:translateY(-8px);
-}
+    .card:hover {
+      transform: translateY(-8px);
+    }
 
-.card img{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid #0d6efd;
-    margin:0 auto 10px;
-}
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #0d6efd;
+      margin: 0 auto 10px;
+    }
 
-.card p{
-    margin:4px 0;
-}
+    .card p {
+      margin: 4px 0;
+    }
 
-.form{
-    /* min-height: 100vh; */
-    margin-top: 10%;
-}
+    .form {
+      /* min-height: 100vh; */
+      margin-top: 10%;
+    }
   </style>
 </head>
+
 <body>
   <h1>Student Records</h1>
   <input type="text" id="val">
@@ -103,58 +105,52 @@ button:hover{
   </div>
   <script>
     let student = document.querySelector(".form");
-    
+
     let arr = [
-  { roll: "1", name: "Shahil", course: "B.Tech", address: "Delhi", photo: "logo.jpg" },
-  { roll: "2", name: "Rahul", course: "B.Tech", address: "Noida", photo: "logo.jpg" },
-  { roll: "3", name: "Aman", course: "BCA", address: "Lucknow", photo: "logo.jpg" },
-  { roll: "4", name: "Arjun", course: "B.Sc", address: "Agra", photo: "logo.jpg" },
-  { roll: "5", name: "Vikas", course: "B.Com", address: "Kanpur", photo: "logo.jpg" },
-  { roll: "6", name: "Rohit", course: "MBA", address: "Jaipur", photo: "logo.jpg" },
-  { roll: "7", name: "Karan", course: "B.Tech", address: "Mathura", photo: "logo.jpg" },
-  { roll: "8", name: "Mohit", course: "BCA", address: "Meerut", photo: "logo.jpg" },
-  { roll: "9", name: "Deepak", course: "BBA", address: "Ghaziabad", photo: "logo.jpg" },
-  { roll: "10", name: "Harsh", course: "B.Tech", address: "Patna", photo: "logo.jpg" },
-  { roll: "11", name: "Ankit", course: "MBA", address: "Varanasi", photo: "logo.jpg" },
-  { roll: "12", name: "Nikhil", course: "B.Sc", address: "Prayagraj", photo: "logo.jpg" },
-  { roll: "13", name: "Sumit", course: "BCA", address: "Aligarh", photo: "logo.jpg" },
-  { roll: "14", name: "Ravi", course: "B.Tech", address: "Bareilly", photo: "logo.jpg" },
-  { roll: "15", name: "Aditya", course: "B.Com", address: "Gorakhpur", photo: "logo.jpg" },
-  { roll: "16", name: "Yash", course: "MBA", address: "Indore", photo: "logo.jpg" },
-  { roll: "17", name: "Sachin", course: "B.Tech", address: "Bhopal", photo: "logo.jpg" },
-  { roll: "18", name: "Abhishek", course: "BCA", address: "Chandigarh", photo: "logo.jpg" },
-  { roll: "19", name: "Ayush", course: "BBA", address: "Dehradun", photo: "logo.jpg" },
-  { roll: "20", name: "Ritik", course: "B.Tech", address: "Mumbai", photo: "logo.jpg" }
-];
-let show = " "
-arr.forEach(element => {
-     show += `<div class="card col-lg-2"><img src="${element.photo}"> 
+      { roll: "1", name: "Shahil", course: "B.Tech", address: "Delhi", photo: "logo.jpg" },
+      { roll: "2", name: "Rahul", course: "B.Tech", address: "Noida", photo: "logo1.jpg" },
+      { roll: "3", name: "Aman", course: "BCA", address: "Lucknow", photo: "logo3.jpeg" },
+      { roll: "4", name: "Arjun", course: "B.Sc", address: "Agra", photo: "logo.jpg" },
+      { roll: "5", name: "Vikas", course: "B.Com", address: "Kanpur", photo: "logo1.jpg" },
+      { roll: "6", name: "Rohit", course: "MBA", address: "Jaipur", photo: "logo3.jpeg" },
+      { roll: "7", name: "Karan", course: "B.Tech", address: "Mathura", photo: "logo.jpg" },
+      { roll: "8", name: "Mohit", course: "BCA", address: "Meerut", photo: "logo1.jpg" },
+      { roll: "9", name: "Deepak", course: "BBA", address: "Ghaziabad", photo: "logo3.jpeg" },
+      { roll: "10", name: "Harsh", course: "B.Tech", address: "Patna", photo: "logo.jpg" },
+      { roll: "11", name: "Ankit", course: "MBA", address: "Varanasi", photo: "logo1.jpg" },
+      { roll: "12", name: "Nikhil", course: "B.Sc", address: "Prayagraj", photo: "logo3.jpeg" },
+      { roll: "13", name: "Sumit", course: "BCA", address: "Aligarh", photo: "logo.jpg" },
+      { roll: "14", name: "Ravi", course: "B.Tech", address: "Bareilly", photo: "logo1.jpg" },
+      { roll: "15", name: "Aditya", course: "B.Com", address: "Gorakhpur", photo: "logo3.jpeg" },
+      { roll: "16", name: "Yash", course: "MBA", address: "Indore", photo: "logo.jpg" },
+      { roll: "17", name: "Sachin", course: "B.Tech", address: "Bhopal", photo: "logo1.jpg" },
+      { roll: "18", name: "Abhishek", course: "BCA", address: "Chandigarh", photo: "logo3.jpeg" },
+      { roll: "19", name: "Ayush", course: "BBA", address: "Dehradun", photo: "logo.jpg" },
+      { roll: "20", name: "Ritik", course: "B.Tech", address: "Mumbai", photo: "logo1.jpg" }
+    ];
+    let show = " "
+    arr.forEach(element => {
+      show += `<div class="card col-lg-2"><img src="${element.photo}"> 
      RollNo: ${element.roll} </br>
      Name: ${element.name} <br>
      Course: ${element.course}
      Address: ${element.address}
      </div>
      `
-});
+    });
 
-student.innerHTML = show;
+    student.innerHTML = show;
 
-// function search(){
-//   let result = document.querySelector(".from1").value;
-
-//   let val = document.querySelector("#val").value;
-//   arr.filter(item => item === roll)
   
-// }
-function search() {
+    function search() {
 
-    let val = document.querySelector("#val").value;
+      let val = document.querySelector("#val").value;
 
-    let result = arr.filter(item => item.roll === val);
+      let result = arr.filter(item => item.roll === val || item.name === val || item.course === val);
 
-    let show = "";
+      let show = "";
 
-    result.forEach(element => {
+      result.forEach(element => {
         show += `
         <div class="col-lg-3">
             <div class="card " style="height: 300px">
@@ -166,11 +162,14 @@ function search() {
             </div>
         </div>
         `;
-    });
+      });
 
-    student.innerHTML = show;
-}
+      student.innerHTML = show;
+    }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
