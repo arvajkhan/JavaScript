@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Find Method in Array</h1>
+  <h1 class="show"></h1>
+  <p class="result"></p>
+  <script>
+    let show = document.querySelector(".show");
+    let result = document.querySelector(".result");
+
+    let arr = [10,20,30,40,40]
+    show.innerHTML =  arr.join(" ");
+    let value = arr.find(item => item > 25)
+    result.innerHTML = value
+  </script>
+</body>
+</html>
