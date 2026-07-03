@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+/* Navbar */
+
+.custom-navbar{
+    background:linear-gradient(90deg,#0d6efd,#6610f2);
+    padding:15px 0;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.navbar-brand{
+    font-size:26px;
+    letter-spacing:1px;
+}
+
+.nav-link{
+    color:white !important;
+    margin-left:12px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#ffd43b !important;
+}
+
+/* Dropdown */
+
+.dropdown-menu{
+    border:none;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+    overflow:hidden;
+}
+
+.dropdown-item{
+    padding:12px 20px;
+    transition:.3s;
+}
+
+.dropdown-item:hover{
+    background:#0d6efd;
+    color:white;
+    padding-left:30px;
+}
+
+/* Search */
+
+.form-control{
+    width:230px;
+    border-radius:30px;
+}
+
+/* Profile */
+
+.profile{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    margin-right:8px;
+    border:2px solid white;
+}
+
+/* Notification */
+
+.bi-bell-fill{
+    font-size:22px;
+}
+
+.bi-bell-fill:hover{
+    color:#ffd43b;
+}
+
+/* Responsive */
+
+@media(max-width:991px){
+
+.form-control{
+    width:100%;
+    margin-top:10px;
+}
+
+.nav-item{
+    margin-top:8px;
+}
+
+.profile{
+    margin-top:5px;
+}
+
+}
