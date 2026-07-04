@@ -99,11 +99,12 @@ body{
 
 }
 .card{
-  height: 400px;
+  height: 450px;
   /* display: grid;
   place-items: center;
   align-items: center;*/
   text-align: justify; 
+  margin-top: 50px;
 }
 
 .photo{
