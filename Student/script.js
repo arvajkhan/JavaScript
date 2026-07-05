@@ -483,7 +483,6 @@ function updateStudent() {
 function deleteStudent(id) {
 
     arr = arr.filter((x) => x.id !== id);
-
     render();
 }
 // ================= Clear Form =================
@@ -499,3 +498,5 @@ function clearForm() {
 
     editId = null;
 }
+
+
