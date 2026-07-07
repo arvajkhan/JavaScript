@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Longest Substring</title>
+</head>
+<body>
+
+    <input type="text" id="text" placeholder="Enter a string">
+    <button onclick="findLength()">Find</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function findLength() {
+            let s = document.getElementById("text").value;
+
+            let set = new Set();
+            let left = 0;
+            let maxLength = 0;
+
+            for (let right = 0; right < s.length; right++) {
+
+                while (set.has(s[right])) {
+                    set.delete(s[left]);
+                    left++;
+                }
+
+                set.add(s[right]);
+                maxLength = Math.max(maxLength, set.size);
+            }
+
+            document.getElementById("result").innerHTML =
+                "Longest Length = " + maxLength;
+        }
+    </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Longest Substring</title>
+</head>
+<body>
+
+    <input type="text" id="text" placeholder="Enter a string">
+    <button onclick="findLength()">Find</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function findLength() {
+            let s = document.getElementById("text").value;
+
+            let set = new Set();
+            let left = 0;
+            let right = 0;
+            let maxLength = 0;
+            let longestStr = "";
+
+            for (right = 0; right < s.length; right++) {
+
+                while (set.has(s[right])) {
+                    set.delete(s[left]);
+                    left++;
+                }
+
+                set.add(s[right]);
+
+                if (set.size > maxLength) {
+                    maxLength = set.size;
+                    longestStr = s.substring(left, right + 1);
+                }
+            }
+
+            document.getElementById("result").innerHTML =
+                `Longest Substring = ${longestStr}<br>
+                 Length = ${maxLength}`;
+        }
+    </script>
+
+</body>
+</html>
