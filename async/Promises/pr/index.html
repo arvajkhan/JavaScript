@@ -9,15 +9,52 @@
   <!-- Sabse Pahle Ghar par aao
   Gate Kholo or gate lagao
   Khana pakao and so jao 
+  Incongito mode chalao
+  sojao kyuki tum thak gaye ho
   -->
   <div class="result"></div>
   <script>
-    let result = document.querySelectorr(".result");
-    
-
+    let result = document.querySelector(".result");
+  
     let p1 = new Promise((res,rej)=>{
       return res("Sabse Pahle Ghar par Aao")
     })
+    let p2 = p1.then((data)=>{
+      result.innerHTML += `<p> ${data} </p> `
+      return new Promise((res,rej) => {
+        return res("Gate Kholo or Gate lagao");
+      })
+    })
+
+    let p3 = p2.then((data)=>{
+      result.innerHTML += `<p> ${data} </p>`
+      return new Promise((res , rej) => {
+        return res("Khana pakao and Khana khao");
+      })
+    })
+
+    let p4 = p3.then((data)=> {
+      result.innerHTML += `<p> ${data} </p>`
+
+      return new Promise((res, rej) => {
+        return res("Incongito mode chalao");
+      })
+    })
+
+    let p5 = p4.then((data)=> {
+      result.innerHTML += `<p> ${data} </p>`
+      
+      return new Promise((res, rej) => {
+        return res("sojao kyuki tum thak gaye ho");
+      })
+    })
+
+    p5.then((data) => {
+      result.innerHTML += `<p> ${data} </p>`
+    })
+
+
+    
   </script>
 </body>
 </html>
