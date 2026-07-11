@@ -1,23 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Student List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+      .form{
+        gap: 20px;
+      }
+      .card{
+        gap: 20px;
+        display: grid;
+        align-items: center;
+        place-items: center;
+        text-align: justify;
+      }
+      .photo{
+        height: 100px;
+        width: 100px;
+      }
+    </style>
 </head>
+
 <body>
-  <p class="result"></p>
+
+  <h1>Student List</h1>
+
+  <div class="container">
+    <div class="row form g-5 "></div>
+  </div>
 
   <script>
-    let result = document.querySelector(".result");
-    async function abcd(){
-      fetch('https://randomuser.me/api/')
-      .then(function(res){
-        return res.json();
-      }).then(function(data){
-        result.innerHTML = data;
+
+    let result = document.querySelector(".form");
+    let show = " "
+    fetch("https://dummyjson.com/users?limit=30")
+
+      .then(function (response) {
+        return response.json();
       })
-    }
+
+      .then(function (data) {
+
+        console.log(data.users);
+
+        data.users.forEach(function (user, index) {
+           show += `<div class="card col col-lg-2">
+            <img src="${user.image}" class="photo">
+            <p class="para">Roll Number : ${user.rollNumber}</p>
+            <p class="para">Name : ${user.firstName} ${user.lastName}</p>
+            <p class="para">Age : ${user.age}</p>
+            <p class="para">Course : ${user.course}</p>
+            <p class="para">Branch : ${user.branch}</p>
+            <p class="para">Address :${user.address.address}</p>
+            </div>`
+
+
+
+        });
+        result.innerHTML = show
+
+      })
+
+      .catch(function (error) {
+
+        console.log(error);
+
+      });
+
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
