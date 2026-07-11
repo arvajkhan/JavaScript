@@ -6,6 +6,18 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <p class="result"></p>
+
+  <script>
+    let result = document.querySelector(".result");
+    async function abcd(){
+      fetch('https://randomuser.me/api/')
+      .then(function(res){
+        return res.json();
+      }).then(function(data){
+        result.innerHTML = data;
+      })
+    }
+  </script>
 </body>
 </html>
