@@ -15,8 +15,9 @@ fetch("https://dummyjson.com/carts")
                 <img src="${product.thumbnail}" class="card-img-top">
                 <div class="card-body">
                     <h5>Brand: ${product.title}</h5>
-                    <p>Price: ${product.price}</p>
-                    </br>
+                    <p>price: ${product.price}</p>
+                    
+                    
                     <button class="btn btn-success px-4 m-4">Buy</button><button class="btn btn-warning px-4">Cart</button>
                 </div>
             </div>
