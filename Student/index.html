@@ -1,39 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    
-    <style>
-        body{
-            display: grid;
-            align-items: center;
-            place-content: center;
-            place-items: center;
-        }
-        #searchInput{
-            height: 36px;
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Directory</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #f4f6f9; min-height: 100vh; }
+    .header { padding: 30px 15px; text-align: center; }
+    .search-box { max-width: 600px; margin: auto; display: flex; gap: 10px; }
+    .student-card img { height: 220px; object-fit: contain; background: #eee; }
+    .student-card { transition: 0.3s; }
+    .student-card:hover { transform: translateY(-5px); }
+    #message { text-align: center; margin-top: 20px; }
+  </style>
 </head>
-
 <body>
-   <div class="search">
-    <input type="text" id="searchInput" class="btn btn-outline-warning">
-    <button class="btn btn-outline-warning" onclick="btn()">Search</button>
-   </div>
-    <div class="container">
-        <div class="row form g-2"></div>
+  <header class="header">
+    <h1>Student Directory</h1>
+    <p>Search student by exact name, email or phone</p>
+    <div class="search-box">
+      <input type="text" id="searchInput" class="form-control" placeholder="Enter name, email or phone">
+      <button id="searchBtn" class="btn btn-primary">Search</button>
+      <button id="showAllBtn" class="btn btn-dark">Show All</button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-</body>
+    <div id="message"></div>
+  </header>
 
+  <main class="container">
+    <div id="studentContainer" class="row"></div>
+  </main>
+
+  <script>
+    const API = "https://dummyjson.com/users";
+    const studentContainer = document.querySelector("#studentContainer");
+    const searchInput = document.querySelector("#searchInput");
+    const searchBtn = document.querySelector("#searchBtn");
+    const showAllBtn = document.querySelector("#showAllBtn");
+    const message = document.querySelector("#message");
+    let students = [];
+    const studentIndex = new Map();
+
+    function createCard(student) {
+      const column = document.createElement("div");
+      column.className = "col-12 col-sm-6 col-lg-4 mb-4";
+      column.innerHTML = `
+        <div class="card student-card h-100 shadow">
+          <img src="${student.image}" class="card-img-top">
+          <div class="card-body">
+            <h4>${student.firstName} ${student.lastName}</h4>
+            <p>Age: ${student.age}</p>
+            <p>Email: ${student.email}</p>
+            <p>Phone: ${student.phone}</p>
+            <p>Address: ${student.address.city}, ${student.address.country}</p>
+          </div>
+        </div>
+      `;
+      return column;
+    }
+
+    function renderStudents(data, index = 0) {
+      if (index === data.length) return;
+      studentContainer.append(createCard(data[index]));
+      renderStudents(data, index + 1);
+    }
+
+    function createSearchIndex(data, index = 0) {
+      if (index === data.length) return;
+      const student = data[index];
+      const fullName = `${student.firstName} ${student.lastName}`.toLowerCase();
+      studentIndex.set(fullName, student);
+      studentIndex.set(student.email.toLowerCase(), student);
+      studentIndex.set(student.phone.toLowerCase(), student);
+      createSearchIndex(data, index + 1);
+    }
+
+    function searchStudent() {
+      const value = searchInput.value.trim().toLowerCase();
+      studentContainer.innerHTML = "";
+      const student = studentIndex.get(value);
+      if (!student) {
+        message.textContent = "Student not found";
+        return;
+      }
+      message.textContent = "Student Found";
+      studentContainer.append(createCard(student));
+    }
+
+    function showAllStudents() {
+      studentContainer.innerHTML = "";
+      message.textContent = `${students.length} Students`;
+      renderStudents(students);
+    }
+
+    fetch(API)
+      .then(response => response.json())
+      .then(data => {
+        students = data.users;
+        createSearchIndex(students);
+        renderStudents(students);
+        message.textContent = `${students.length} Students Loaded`;
+      })
+      .catch(error => {
+        message.textContent = "Failed to load students";
+        console.log(error);
+      });
+
+    searchBtn.addEventListener("click", searchStudent);
+    showAllBtn.addEventListener("click", showAllStudents);
+  </script>
+</body>
 </html>
