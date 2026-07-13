@@ -321,182 +321,26 @@ arr.forEach(element => {
 })
 
 
-// function btn() {
-//   show = " ";
-//   let val = document.querySelector(".search-input").value.trim();
-//   let result = arr.filter(item => item.roll === val || item.name === val || item.phone === val || item.email === val || item.department === val)
-//   result.forEach(element => {
-//     show += `<div class="col-lg-3 col-md-6 col-sm-12">
-//   <div class="card">
-//   <img src="${element.photo}" alt="Student" class="photo">
-//   <br>
-//   <p>RollNo: ${element.roll} </p> 
-//   <p>Name : ${element.name} </p>
-//   <p>Course : ${element.department}</p>
-//   <p>Email : ${element.email}</p>
-//   <p>Phone : ${element.phone}</p>
-//   <p>Address : ${element.address}</p>
-//   </div>
-//   </div>
-//   `
-//     form.innerHTML = show
-//   })
-// }
-
-// let editId = null;
-// const form = document.querySelector(".form");
-
-// // ================= Display Student Card =================
-
-// function card(e) {
-//   return `
-//         <div class="col-md-3">
-//             <div class="card p-3">
-
-//                 <img class="photo" src="${e.photo}" alt="Student">
-
-//                 <p><b>Roll No :</b> ${e.roll}</p>
-//                 <p><b>Name :</b> ${e.name}</p>
-//                 <p><b>Department :</b> ${e.department}</p>
-//                 <p><b>Email :</b> ${e.email}</p>
-//                 <p><b>Phone :</b> ${e.phone}</p>
-//                 <p><b>Address :</b> ${e.address}</p>
-
-//                 <button
-//                     class="btn btn-primary btn-sm"
-//                     onclick="editStudent(${e.id})">
-//                     Edit
-//                 </button>
-
-//                 <button
-//                     class="btn btn-danger btn-sm mt-2"
-//                     onclick="deleteStudent(${e.id})">
-//                     Delete
-//                 </button>
-
-//             </div>
-//         </div>
-//     `;
-// }
-
-
-
-// // ================= Search Student =================
-
-// function searchStudent() {
-
-//   const v = document
-//     .getElementById("search")
-//     .value
-//     .toLowerCase();
-
-//   const result = arr.filter((x) =>
-
-//     x.roll.includes(v) ||
-
-//     x.name.toLowerCase().includes(v) ||
-
-//     x.department.toLowerCase().includes(v) ||
-
-//     x.email.toLowerCase().includes(v) ||
-
-//     x.phone.includes(v)
-
-//   );
-
-//   render(result);
-// }
-
-// // ================= Add Student =================
-
-// function addStudent() {
-
-//   arr.push({
-
-//     id: Date.now(),
-
-//     roll: roll.value,
-
-//     name: name.value,
-
-//     department: department.value,
-
-//     email: email.value,
-
-//     phone: phone.value,
-
-//     address: address.value,
-
-//     photo: "https://randomuser.me/api/portraits/men/50.jpg"
-
-//   });
-
-//   render();
-
-//   clearForm();
-// }
-
-
-// // ================= Edit Student =================
-
-// function editStudent(id) {
-
-//   editId = id;
-
-//   let student = arr.filter((x) => x.id === id);
-
-//   if (student.length === 0) return;
-
-//   roll.value = student[0].roll;
-//   name.value = student[0].name;
-//   department.value = student[0].department;
-//   email.value = student[0].email;
-//   phone.value = student[0].phone;
-//   address.value = student[0].address;
-// }
-// // ================= Update Student =================
-
-// // ================= Update Student =================
-
-// function updateStudent() {
-
-//   let student = arr.filter((x) => x.id === editId);
-
-//   if (student.length === 0) return;
-
-//   student[0].roll = roll.value;
-//   student[0].name = name.value;
-//   student[0].department = department.value;
-//   student[0].email = email.value;
-//   student[0].phone = phone.value;
-//   student[0].address = address.value;
-
-//   render();
-
-//   clearForm();
-// }
-
-
-
-// // ================= Delete Student =================
-
-// function deleteStudent(id) {
-
-//   arr = arr.filter((x) => x.id !== id);
-//   render();
-// }
-// // ================= Clear Form =================
-
-// function clearForm() {
-
-//   roll.value = "";
-//   name.value = "";
-//   department.value = "";
-//   email.value = "";
-//   phone.value = "";
-//   address.value = "";
-
-//   editId = null;
-// }
+function btn() {
+  show = " ";
+  let val = document.querySelector(".search-input").value.trim();
+  let result = arr.filter(item => item.roll === val || item.name === val || item.phone === val || item.email === val || item.department === val)
+  result.forEach(element => {
+    show += `<div class="col-lg-3 col-md-6 col-sm-12">
+  <div class="card">
+  <img src="${element.photo}" alt="Student" class="photo">
+  <br>
+  <p>RollNo: ${element.roll} </p> 
+  <p>Name : ${element.name} </p>
+  <p>Course : ${element.department}</p>
+  <p>Email : ${element.email}</p>
+  <p>Phone : ${element.phone}</p>
+  <p>Address : ${element.address}</p>
+  </div>
+  </div>
+  `
+    form.innerHTML = show
+  })
+}
 
 
