@@ -2,14 +2,14 @@ let result = document.querySelector(".result");
 let show = "";
 
 fetch("https://dummyjson.com/carts")
-.then(res => res.json())
-.then(data => {
+    .then(res => res.json())
+    .then(data => {
 
-    data.carts.forEach(cart => {
+        data.carts.forEach(cart => {
 
-        let product = cart.products[0];
+            let product = cart.products[0];
 
-        show += `
+            show += `
         <div class="col-12 col-sm-6 col-lg-3 mb-4">
             <div class="card h-100">
                 <img src="${product.thumbnail}" class="card-img-top">
@@ -24,8 +24,8 @@ fetch("https://dummyjson.com/carts")
         </div>
         `;
 
+        });
+
+        result.innerHTML = show;
+
     });
-
-    result.innerHTML = show;
-
-});
