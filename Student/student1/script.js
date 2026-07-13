@@ -3,7 +3,7 @@ let result = document.querySelector(".form")
 let search = document.querySelector("#searchInput")
 let show = "";
 let allproduct = [];
-fetch('/JavaScript/Student/student1/mydata.json').
+fetch("https://dummyjson.com/users?utm_source=chatgpt.com").
   then((res) => {
     return res.json();
   }).then((data) => {
@@ -25,7 +25,9 @@ fetch('/JavaScript/Student/student1/mydata.json').
                     </div>
                 </div>
      `
+
     });
+    result.innerHTML = show;
   })
 
 // function btn() {
