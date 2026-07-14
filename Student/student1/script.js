@@ -77,13 +77,57 @@ function btn() {
 
 function deleteStudent(id) {
 
+  // jis student ki id match nahi karegi,
+  // woh array me bach jayega
   allStudents = allStudents.filter((student) => {
-
     return student.id !== id;
-
   });
 
-  showStudents(allStudents);
+  // purana HTML clear
+  show = "";
+
+  // remaining students ke cards banao
+  allStudents.forEach((student) => {
+
+    show += `
+      <div class="col col-12 col-sm-6 col-lg-3 mb-4">
+        <div class="card h-100 shadow">
+
+          <img src="${student.image}" class="card-img-top">
+
+          <div class="card-body">
+
+            <h4>${student.firstName} ${student.lastName}</h4>
+
+            <p>Age: ${student.age}</p>
+
+            <p>Email: ${student.email}</p>
+
+            <p>Phone: ${student.phone}</p>
+
+            <p>
+              Address:
+              ${student.address.city},
+              ${student.address.country}
+            </p>
+
+            <button class="btn btn-primary">
+              View Profile
+            </button>
+
+            <button
+              class="btn btn-danger"
+              onclick="deleteStudent(${student.id})">
+              Delete
+            </button>
+
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  result.innerHTML = show;
 }
 // function btn() {
 //   let searchValue = search.value.toLowerCase();
