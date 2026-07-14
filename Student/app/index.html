@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>Student Management</h2>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search student..."
+        >
+    </nav>
+
+
+    <main>
+
+        <section class="add-section">
+
+            <h2>Add Student</h2>
+
+            <input type="text" id="name" placeholder="Enter Name">
+
+            <input type="email" id="email" placeholder="Enter Email">
+
+            <input type="number" id="age" placeholder="Enter Age">
+
+            <button id="addBtn">Add Student</button>
+
+        </section>
+
+
+        <section>
+
+            <h2 class="heading">Students</h2>
+
+            <div id="studentContainer" class="student-container">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script type="module" src="js/main.js"></script>
+
+</body>
+
+</html>
