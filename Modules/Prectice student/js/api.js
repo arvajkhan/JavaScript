@@ -1,0 +1,1 @@
+export async function getStudents(){return [{id:1,photo:'https://via.placeholder.com/300',name:'John Doe',age:21,address:'Delhi',course:'B.Tech',branch:'CSE',university:'GLA University',nationality:'Indian'}];}
