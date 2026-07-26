@@ -4,7 +4,7 @@ let result = document.querySelector(".result")
 let show = ""
     arr.forEach((student) => {
         show += `
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 cart">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 card m-2">
                 <img src="${student.image}" width="100">
                 <h3>${student.name}</h3>
                 <p>Roll No : ${student.rollNumber}</p>
