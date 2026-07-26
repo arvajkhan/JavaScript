@@ -1,15 +1,10 @@
-// import { arr } from "./arr.js";
+import { arr } from "./arr.js";
 
-fetch("arr.js")
-fetch("students.json")
-.then((response) => response.json())
-.then((students) => {
-
-    let show = "";
-
-    students.forEach((student) => {
+let result = document.querySelector(".result")
+let show = ""
+    arr.forEach((student) => {
         show += `
-            <div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 cart">
                 <img src="${student.image}" width="100">
                 <h3>${student.name}</h3>
                 <p>Roll No : ${student.rollNumber}</p>
@@ -22,8 +17,3 @@ fetch("students.json")
     });
 
     result.innerHTML = show;
-
-})
-.catch((error) => {
-    console.log(error);
-});
