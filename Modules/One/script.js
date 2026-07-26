@@ -1,4 +1,4 @@
-import { name } from "./math.js";
+import { message } from "./math.js";
 
 let result = document.querySelector(".result");
-result.innerHTML = name
+result.innerHTML = message;

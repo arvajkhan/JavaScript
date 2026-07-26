@@ -1,2 +1,2 @@
-export let name = "Arvaj Khan"
+export let message = "Arvaj Khan"
 
