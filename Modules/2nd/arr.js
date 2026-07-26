@@ -1,4 +1,4 @@
-let arr = [
+export let arr = [
   {
     rollNumber: 1,
     name: "Arvaj Khan",
