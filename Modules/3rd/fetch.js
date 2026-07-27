@@ -1,34 +1,9 @@
-let result = document.querySelector(".result");
-fetch("data.json").then(res => res.json())
-.then((data)=>{
+export async function getStudents() {
 
-    let show = "";
+    let response = await fetch("./students.json");
 
-    data.forEach((student) => {
+    let data = await response.json();
 
-        show += `
-        <div class="card">
-            <img src="${student.image}" width="120">
+    return data;
 
-            <h2>${student.name}</h2>
-
-            <p>Roll No : ${student.rollNumber}</p>
-
-            <p>Age : ${student.age}</p>
-
-            <p>Course : ${student.course}</p>
-
-            <p>Branch : ${student.branch}</p>
-
-            <hr>
-        </div>
-        `;
-
-    });
-
-    result.innerHTML = show;
-
-})
-.catch((error) => {
-    console.log(error);
-});
+}
