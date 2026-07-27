@@ -1,9 +1,4 @@
-export async function getStudents() {
-
-    let response = await fetch("./students.json");
-
-    let data = await response.json();
-
-    return data;
-
+export function getStudents() {
+    return fetch("data.json")
+        .then((response) => response.json());
 }
